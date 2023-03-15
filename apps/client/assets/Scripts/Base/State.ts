@@ -22,9 +22,13 @@ export default class State {
   ) {
     //生成动画轨道属性
     const track = new animation.ObjectTrack();
-    track.path = new animation.TrackPath().toComponent(Sprite).toProperty("spriteFrame");
+    track.path = new animation.TrackPath()
+      .toComponent(Sprite)
+      .toProperty("spriteFrame");
     const spriteFrames = DataManager.Instance.textureMap.get(this.path);
-    const frames: Array<[number, SpriteFrame]> = sortSpriteFrame(spriteFrames).map((item, index) => [index * ANIMATION_SPEED, item]);
+    const frames: Array<[number, SpriteFrame]> = sortSpriteFrame(
+      spriteFrames
+    ).map((item, index) => [index * ANIMATION_SPEED, item]);
     track.channel.curve.assignSorted(frames);
 
     //动画添加轨道
@@ -36,7 +40,11 @@ export default class State {
   }
 
   run() {
-    if (this.fsm.animationComponent.defaultClip?.name === this.animationClip.name && !this.force) {
+    if (
+      this.fsm.animationComponent.defaultClip?.name ===
+        this.animationClip.name &&
+      !this.force
+    ) {
       return;
     }
     this.fsm.animationComponent.defaultClip = this.animationClip;

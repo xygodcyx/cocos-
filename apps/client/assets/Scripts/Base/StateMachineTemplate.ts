@@ -1,4 +1,4 @@
-// import { _decorator, Animation, AnimationClip } from "cc";
+//import { _decorator, Animation, AnimationClip } from "cc";
 // import State from "../../Base/State";
 // import StateMachine, { getInitParamsTrigger } from "../../Base/StateMachine";
 // import { EntityTypeEnum } from "../../Common";
